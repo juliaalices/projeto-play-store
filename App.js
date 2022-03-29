@@ -1,7 +1,8 @@
 
-import { StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import Botao from "./src/components/botao";
 import Cabecalho from "./src/components/cabecalho";
+import Jogos from "./src/components/Jogos";
 
 
 export default function App() {
@@ -32,6 +33,20 @@ export default function App() {
       texto2="NOTÍCIAS"
       cor2="red"
       />
+      <FlatList
+      horizontal={true}
+      data = {Dados}
+      keyExtractor = {(item)v => item.id}
+      renderItem = { ({ item }) => (
+
+        <Jogos
+        titulo ={item.nome}
+        imagem = {item.imagem}
+        valor = {item.valor}
+       />
+     )}
+
+     />
      </View>
   );
 }
